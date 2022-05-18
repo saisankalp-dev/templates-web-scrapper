@@ -1,7 +1,7 @@
 import axios from "axios"
 import cheerio from "cheerio"
 
-interface INewsCrawler {
+interface INewsScrapper {
     getNewsArticlesFromWebsite(website: string): Promise<Article[]>
 }
 
@@ -11,7 +11,7 @@ interface Article {
     description: string
 }
 
-class NewsCrawler implements INewsCrawler {
+class NewsScrapper implements INewsScrapper {
     seedLinks: string[] = [
         "https://economictimes.indiatimes.com/markets",
         "https://www.moneycontrol.com/news/india/",
@@ -35,4 +35,4 @@ class NewsCrawler implements INewsCrawler {
     }
 }
 
-export { INewsCrawler, NewsCrawler }
+export { INewsScrapper, NewsScrapper }

@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
-import { NewsCrawler } from './src/NewsCrawler';
+import { NewsScrapper } from './src/NewsScrapper';
 
 dotenv.config();
 
@@ -8,8 +8,8 @@ const app: Express = express();
 const port = process.env.PORT;
 
 app.get('/', async(req: Request, res: Response) => {
-  let newsCrawler = new NewsCrawler()
-  let news = await newsCrawler.getNewsArticlesFromWebsite("https://economictimes.indiatimes.com/markets/stocks/news")
+  let newsScrapper = new NewsScrapper()
+  let news = await newsScrapper.getNewsArticlesFromWebsite("https://economictimes.indiatimes.com/markets/stocks/news")
   res.send({headings:news});
 });
 
